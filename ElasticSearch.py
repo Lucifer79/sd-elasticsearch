@@ -27,18 +27,11 @@ class ElasticSearch:
         self.checksLogger = checksLogger
         self.rawConfig = rawConfig
 
-        if self.agentConfig is None:
-            self.setDefaultConfig()
-
-        if ('ElasticSearch' not in self.agentConfig):
-            self.setDefaultConfig()
-
-    def setDefaultConfig(self):
-        self.agentConfig = {}
-        self.agentConfig['ElasticSearch'] = {'host': 'localhost:9200'}
-
     def getClusterInfo(self):
-        conn = httplib.HTTPConnection(self.agentConfig['ElasticSearch']['host'])
+        conn = httplib.HTTPConnection('169.254.169.254')
+        conn.request("GET", "/latest/meta-data/local-ipv4")
+        host = conn.getresponse().read()
+        conn = httplib.HTTPConnection(host + ':9200')
         conn.request("GET", "/_cluster/nodes/stats?&all=true")
         return conn.getresponse().read()
 
