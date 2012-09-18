@@ -34,13 +34,6 @@ Copy the `ElasticSearch.py` script to your `sd-agent` plugins folder e.g. `/usr/
 Configuration
 -------------
 
-Add your ES host to the ServerDensity configuration file e.g. `/etc/sd-agent/config.cfg)`:
-
-```
-[ElasticSearch]
-host: localhost:9200
-```
-
 Make sure the agent knows where to find your plugins:
 
 ```
