@@ -1,7 +1,7 @@
 SD-ElasticSearch
 ================
 
-ElasticSearch plugin for ServerDensity.
+ElasticSearch plugin for ServerDensity for use on Amazon EC2.
 
 Monitors the following statistics per node:
 
@@ -34,7 +34,9 @@ Copy the `ElasticSearch.py` script to your `sd-agent` plugins folder e.g. `/usr/
 Configuration
 -------------
 
-Make sure the agent knows where to find your plugins:
+No Elastic Search configuration required.
+
+Just make sure the agent knows where to find your plugins:
 
 ```
 [Main]
